@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="container">
+        <nav class="w-50 container py-4">
+            <h3 style="letter-spacing: 3px;"
+                class="text-center py-4 fw-bold rounded-pill text-uppercase bg-dark-subtle">Crud Operation</h3>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-4">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    class="btn d-flex justify-content-center align-items-center btn-primary"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                        class="bi me-1 bi-person-plus" viewBox="0 0 16 16">
+                        <path
+                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                        <path fill-rule="evenodd"
+                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+                    </svg> Add</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Student Information</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <input type="text" id="idInput" class="form-control my-2" placeholder="Student ID">
+                                    <input type="text" id="nameInput" class="form-control my-2"
+                                        placeholder="Student Name">
+                                    <input type="file" id="fileInput" class="form-control my-2"
+                                        placeholder="Student Image">
+                                    <input type="radio" id="male" value="male" name="gender">
+                                    <label for="male">Male</label>
+                                    <input type="radio" name="gender" value="female" id="female">
+                                    <label for="female">Female</label>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <search>
+                    <input type="text" id="searchInput" class="form-control rounded-pill"
+                        placeholder="Search Student Name">
+                </search>
+            </div>
+            <div class=" d-flex justify-content-end col-4">
+                <span class="btn d-flex justify-content-center align-items-center btn-outline-dark"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                        class="bi bi-people me-1" viewBox="0 0 16 16">
+                        <path
+                            d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                    </svg> 0</span>
+            </div>
+        </div>
+    </section>
+    <main class="container py-3">
+        <table class="table table-striped table-hover text-center align-middle">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Profile</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Na Na</td>
+                    <td>Female</td>
+                    <td><img style="width: 2.7rem; height: 2.7rem;" class="rounded-circle"
+                            src="https://imgs.search.brave.com/lPC-Z6d1DppPxkoynwsndAxSZ1kTxkeHZI-EMU4FrYY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtY3NlLmNhbnZh/LmNvbS9ibG9iLzE5/Mzg4MzAvMTYwMHct/el9yX0tDMVdsbVUu/anBn"
+                            alt=""></td>
+                    <td>
+                        <span class="btn btn-warning">Edit</span>
+                        <span class="btn btn-danger">Delete</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+</html>
