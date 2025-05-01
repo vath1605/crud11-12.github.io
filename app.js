@@ -61,9 +61,9 @@ function saveStudent(){
     let email = emailInput.value.trim();
     let gender = document.querySelector('input[name="gender"]:checked')?.value;
     let file = fileInput.files[0];
-    let id = students.length + 1;
+    let id = students.length ;
     let student={
-        id : id,
+        id : id + 1,
         name : name,
         email : email,
         gen : gender
@@ -76,15 +76,16 @@ function saveStudent(){
         let reader = new FileReader();
         reader.onload = function(e){
             student.imgUrl = e.target.result;
-            finalizeSave(student);
+            finalizeSave(student,id);
         }
         reader.readAsDataURL(file);
     }
 }
-function finalizeSave(student){
+function finalizeSave(student,oldId){
     if(editIndex===-1){
         students.push(student);
     }else{
+        student.id = oldId;
         students[editIndex] = student;
         editIndex=-1;
         saveBtn.textContent = 'Update';
@@ -145,3 +146,21 @@ function editStudent(index){
     saveBtn.textContent='Update';
 
 }
+function deleteStudent(index){
+    if(confirm("Are u sure to delete?")){
+        students.splice(index,1);
+        display(students);
+        updateCounter(students);
+    }
+}
+searchInput.addEventListener('input',function(){
+    let char = searchInput.value.toLowerCase().trim();
+    if(char === ''){
+        display(students);
+        return;
+    }
+    let arrStu = students.filter(stu =>
+        stu.name.toLowerCase().includes(char));
+    display(arrStu);
+
+})
